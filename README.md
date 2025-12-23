@@ -1,30 +1,22 @@
 # LinkedIn Jobs MCP Server - AI Job Search
 
-> **Connect AI agents to 50+ job boards including LinkedIn, Indeed, Glassdoor, and more!**
+> **Connect AI agents to LinkedIn jobs with intelligent search capabilities!**
 
-This Model Context Protocol (MCP) server enables AI assistants like Claude, ChatGPT, and custom AI applications to search for jobs across multiple platforms through natural language. Perfect for AI-powered job search, recruitment automation, and career development tools.
+This Model Context Protocol (MCP) server enables AI assistants like Claude, ChatGPT, and custom AI applications to search for jobs on LinkedIn through natural language. Perfect for AI-powered job search, recruitment automation, and career development tools.
 
 ## What It Does
 
-This MCP server provides a unified interface to **50+ job scraping tools**, allowing AI agents to:
+This MCP server provides intelligent LinkedIn job search capabilities, allowing AI agents to:
 
-- 🔍 **Search jobs** across multiple job boards simultaneously
-- 📊 **Get job market insights** and analytics
+- 🔍 **Search LinkedIn jobs** with advanced filtering options
+- 📊 **Get job market insights** and analytics from LinkedIn
 - 🎯 **Find relevant positions** based on skills and preferences
-- 💼 **Access real-time job postings** from major platforms
+- 💼 **Access real-time job postings** from LinkedIn's professional network
 - 🤖 **Enable AI-powered job search** for any MCP-compatible application
 
 ### Supported Job Boards
 
-- **LinkedIn** - Professional networking jobs
-- **Indeed** - Global job search platform
-- **Glassdoor** - Jobs with company reviews and salaries
-- **Monster** - Traditional job board
-- **CareerBuilder** - Resume and job matching
-- **Dice** - Technology and engineering jobs
-- **Remote work platforms** - WeWorkRemotely, Remote.OK, Remotive
-- **Industry-specific boards** - Healthcare, Tech, Finance, and more
-- **50+ additional job sources** worldwide
+- **LinkedIn** - Professional networking jobs with comprehensive search filters
 
 ## Quick Start
 
@@ -78,26 +70,25 @@ https://shahidirfan--linkedin-jobs-mcp-server.apify.actor/mcp
 
 ## Usage Examples
 
-### Basic Job Search
+### Basic LinkedIn Job Search
 ```
-"Find remote Python developer jobs"
+"Find remote Python developer jobs on LinkedIn"
 ```
 
-### Advanced Search with Filters
+### Advanced LinkedIn Search with Filters
 ```
-"Search for senior software engineer positions in California,
+"Search for senior software engineer positions in California on LinkedIn,
 maximum 20 results, posted in the last week"
 ```
 
-### Multi-Board Search
+### LinkedIn Search with Salary Requirements
 ```
-"Find data scientist jobs on LinkedIn, Indeed, and Glassdoor
-in New York with salaries over $120k"
+"Find data scientist jobs on LinkedIn in New York with salaries over $120k"
 ```
 
-### Job Market Analytics
+### LinkedIn Job Market Analytics
 ```
-"Analyze the job market for React developers in San Francisco"
+"Analyze the job market for React developers in San Francisco on LinkedIn"
 ```
 
 ## Input
@@ -115,9 +106,7 @@ in New York with salaries over $120k"
 ```json
 {
   "actorIds": [
-    "shahidirfan/Fast-LinkedIn-job-Scraper",
-    "shahidirfan/indeed-job-scraper",
-    "shahidirfan/glassdoor-job-scraper"
+    "shahidirfan/Fast-LinkedIn-job-Scraper"
   ],
   "enableBilling": true,
   "serverPort": 8080
@@ -141,32 +130,31 @@ This actor uses **Pay-Per-Event** pricing:
 
 | Event Type | Description | Price |
 |------------|-------------|-------|
-| `job-search` | Single job board search | $0.01 |
-| `multi-board-search` | Search across multiple boards | $0.05 |
-| `premium-analytics` | Job market analytics | $0.10 |
+| `job-search` | LinkedIn job search | $0.01 |
+| `premium-analytics` | LinkedIn job market analytics | $0.10 |
 
 **Free Tier:** 10 searches/month included  
 **No subscription required** - pay only for what you use!
 
 ## Features
 
-### ✅ Multi-Board Search
-Search multiple job boards simultaneously with a single query
+### ✅ Advanced LinkedIn Search
+Comprehensive LinkedIn job search with multiple filter options
 
-### ✅ Real-Time Data
-Access live job postings as they're published
+### ✅ Real-Time LinkedIn Data
+Access live job postings from LinkedIn's professional network
 
 ### ✅ Smart Filtering
-Filter by location, salary, experience level, and more
+Filter LinkedIn jobs by location, salary, experience level, and more
 
 ### ✅ Company Insights
-Get company reviews, ratings, and culture information
+Get company information and LinkedIn company pages
 
 ### ✅ Pay-Per-Use Pricing
-No subscriptions - pay only for searches you perform
+No subscriptions - pay only for LinkedIn searches you perform
 
 ### ✅ AI-Native Design
-Built specifically for AI agent integration
+Built specifically for AI agent integration with LinkedIn
 
 ### ✅ High Availability
 99.9% uptime with standby mode enabled
@@ -177,33 +165,32 @@ SOC 2 Type II certified infrastructure
 ## Use Cases
 
 ### For Job Seekers
-- Get personalized job recommendations
-- Track new postings across multiple boards
+- Get personalized LinkedIn job recommendations
+- Track new postings on LinkedIn's professional network
 - Receive market insights for salary negotiation
-- Find remote work opportunities
+- Find professional networking opportunities
 
 ### For Recruiters
-- Find candidates faster with AI assistance
-- Monitor job market trends
-- Analyze competitor job postings
-- Source talent from multiple platforms
+- Find candidates faster with AI assistance on LinkedIn
+- Monitor LinkedIn job market trends
+- Analyze competitor job postings on LinkedIn
+- Source talent from LinkedIn's professional network
 
 ### For Developers
-- Build AI-powered job search applications
-- Create custom career assistants
-- Automate job market research
-- Develop recruitment automation tools
+- Build AI-powered LinkedIn job search applications
+- Create custom career assistants for LinkedIn
+- Automate LinkedIn job market research
+- Develop recruitment automation tools for LinkedIn
 
 ### For Enterprises
-- Integrate job search into HR systems
-- Power internal career portals
-- Enable AI-driven talent acquisition
-- Monitor industry job trends
+- Integrate LinkedIn job search into HR systems
+- Power internal career portals with LinkedIn data
+- Enable AI-driven talent acquisition from LinkedIn
+- Monitor industry job trends on LinkedIn's platform
 
 ## Performance
 
-- **Response Time:** < 5 seconds for single board searches
-- **Multi-Board:** 10-15 seconds for 3+ boards
+- **Response Time:** < 5 seconds for LinkedIn job searches
 - **Uptime:** 99.9% (standby mode enabled)
 - **Rate Limits:** 30 requests/second per user
 - **Concurrent Users:** Unlimited
@@ -232,7 +219,7 @@ SOC 2 Type II certified infrastructure
 
 ### Version 1.0.0 (2025-01-01)
 - Initial release
-- Support for 50+ job boards
+- LinkedIn job search capabilities
 - Pay-per-event billing
 - Claude Desktop integration
 - VS Code integration

@@ -13,10 +13,10 @@ export async function trackJobSearch(board, resultsCount) {
             timestamp: new Date().toISOString(),
         });
         
-        Actor.log.info(`💰 Tracked event: job-search on ${board} (${resultsCount} results)`);
+        console.log(`💰 Tracked event: job-search on ${board} (${resultsCount} results)`);
         return true;
     } catch (error) {
-        Actor.log.error(`❌ Billing tracking error: ${error.message}`);
+        console.log(`❌ Billing tracking error: ${error.message}`);
         return false;
     }
 }
@@ -35,10 +35,10 @@ export async function trackMultiBoardSearch(boards, totalResults) {
             timestamp: new Date().toISOString(),
         });
         
-        Actor.log.info(`💰 Tracked event: multi-board-search (${boards.length} boards, ${totalResults} results)`);
+        console.log(`💰 Tracked event: multi-board-search (${boards.length} boards, ${totalResults} results)`);
         return true;
     } catch (error) {
-        Actor.log.error(`❌ Billing tracking error: ${error.message}`);
+        console.log(`❌ Billing tracking error: ${error.message}`);
         return false;
     }
 }
@@ -56,7 +56,7 @@ export async function trackPremiumAnalytics(analysisType, metadata = {}) {
             timestamp: new Date().toISOString(),
         });
         
-        Actor.log.info(`💰 Tracked event: premium-analytics (${analysisType})`);
+        console.log(`💰 Tracked event: premium-analytics (${analysisType})`);
         return true;
     } catch (error) {
         Actor.log.error(`❌ Billing tracking error: ${error.message}`);
@@ -71,7 +71,7 @@ export async function trackPremiumAnalytics(analysisType, metadata = {}) {
 export async function getBillingSummary() {
     try {
         const runId = Actor.getEnv().actorRunId;
-        Actor.log.info(`📊 Fetching billing summary for run: ${runId}`);
+        console.log(`📊 Fetching billing summary for run: ${runId}`);
         
         // This is a placeholder - implement based on your needs
         return {
@@ -80,7 +80,7 @@ export async function getBillingSummary() {
             message: 'Billing summary not yet implemented',
         };
     } catch (error) {
-        Actor.log.error(`❌ Error fetching billing summary: ${error.message}`);
+        console.log(`❌ Error fetching billing summary: ${error.message}`);
         return null;
     }
 }

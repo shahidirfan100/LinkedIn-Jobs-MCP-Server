@@ -10,7 +10,7 @@ const DEFAULT_JOB_SCRAPERS = [
 
 await Actor.init();
 
-Actor.log.info('🚀 Starting LinkedIn Jobs MCP Server...');
+console.log('🚀 Starting LinkedIn Jobs MCP Server...');
 
 // Get input or use defaults
 const input = await Actor.getInput() || {};
@@ -18,8 +18,8 @@ const actorIds = input.actorIds || DEFAULT_JOB_SCRAPERS;
 const enableBilling = input.enableBilling !== false;
 const serverPort = input.serverPort || process.env.ACTOR_WEB_SERVER_PORT || 8080;
 
-Actor.log.info(`📋 Exposing ${actorIds.length} job scraper actors via MCP`);
-Actor.log.info(`💰 Billing: ${enableBilling ? 'ENABLED' : 'DISABLED'}`);
+console.log(`📋 Exposing ${actorIds.length} job scraper actors via MCP`);
+console.log(`💰 Billing: ${enableBilling ? 'ENABLED' : 'DISABLED'}`);
 
 // Get actor environment
 const actorEnv = Actor.getEnv();
@@ -27,7 +27,7 @@ const mcpUrl = actorEnv.actorWebServerUrl
     ? `${actorEnv.actorWebServerUrl}/mcp` 
     : `http://localhost:${serverPort}/mcp`;
 
-Actor.log.info(`🌐 MCP Server will be available at: ${mcpUrl}`);
+console.log(`🌐 MCP Server will be available at: ${mcpUrl}`);
 
 // Create health check server
 const healthServer = http.createServer((req, res) => {
@@ -48,11 +48,11 @@ const healthServer = http.createServer((req, res) => {
 });
 
 healthServer.listen(serverPort, () => {
-    Actor.log.info(`✅ Health check server listening on port ${serverPort}`);
+    console.log(`✅ Health check server listening on port ${serverPort}`);
 });
 
 // Start MCP server process using Apify's official MCP server
-Actor.log.info('🔧 Starting Apify MCP server process...');
+console.log('🔧 Starting Apify MCP server process...');
 
 const mcpArgs = [
     '-y',
@@ -63,7 +63,7 @@ const mcpArgs = [
 // Add tools configuration
 mcpArgs.push('--tools=actors,runs,storage');
 
-Actor.log.info(`📦 Running: npx ${mcpArgs.join(' ')}`);
+console.log(`📦 Running: npx ${mcpArgs.join(' ')}`);
 
 const mcpProcess = spawn('npx', mcpArgs, {
     env: {
@@ -79,35 +79,35 @@ const mcpProcess = spawn('npx', mcpArgs, {
 mcpProcess.stdout.on('data', (data) => {
     const output = data.toString().trim();
     if (output) {
-        Actor.log.info(`[MCP] ${output}`);
+        console.log(`[MCP] ${output}`);
     }
 });
 
 mcpProcess.stderr.on('data', (data) => {
     const error = data.toString().trim();
     if (error && !error.includes('ExperimentalWarning')) {
-        Actor.log.warning(`[MCP Error] ${error}`);
+        console.log(`[MCP Error] ${error}`);
     }
 });
 
 mcpProcess.on('error', (error) => {
-    Actor.log.error(`❌ MCP process error: ${error.message}`);
+    console.log(`❌ MCP process error: ${error.message}`);
 });
 
 mcpProcess.on('exit', (code, signal) => {
     if (code !== 0) {
-        Actor.log.error(`❌ MCP process exited with code ${code} and signal ${signal}`);
+        console.log(`❌ MCP process exited with code ${code} and signal ${signal}`);
     } else {
-        Actor.log.info('✅ MCP process exited successfully');
+        console.log('✅ MCP process exited successfully');
     }
 });
 
 // Keep actor running indefinitely (standby mode)
-Actor.log.info('✅ MCP Server is now running and ready to accept connections');
-Actor.log.info(`📋 Available actors: ${actorIds.length}`);
-Actor.log.info(`🔗 MCP Endpoint: ${mcpUrl}`);
-Actor.log.info(`💡 Add this to your Claude Desktop config:`);
-Actor.log.info(`{
+console.log('✅ MCP Server is now running and ready to accept connections');
+console.log(`📋 Available actors: ${actorIds.length}`);
+console.log(`🔗 MCP Endpoint: ${mcpUrl}`);
+console.log(`💡 Add this to your Claude Desktop config:`);
+console.log(`{
   "mcpServers": {
     "linkedin-jobs": {
       "url": "${mcpUrl}"
@@ -117,7 +117,7 @@ Actor.log.info(`{
 
 // Keep the process alive
 process.on('SIGTERM', async () => {
-    Actor.log.info('📛 Received SIGTERM, shutting down gracefully...');
+    console.log('📛 Received SIGTERM, shutting down gracefully...');
     mcpProcess.kill();
     healthServer.close();
     await Actor.exit();
