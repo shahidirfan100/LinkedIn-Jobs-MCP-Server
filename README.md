@@ -1,35 +1,32 @@
-# 🤖 LinkedIn Jobs MCP Server
+# LinkedIn Jobs MCP Server - AI Job Search
 
-**Connect AI agents to 50+ job boards including LinkedIn, Indeed, Glassdoor, and more!**
+> **Connect AI agents to 50+ job boards including LinkedIn, Indeed, Glassdoor, and more!**
 
-This Model Context Protocol (MCP) server enables AI assistants like Claude, ChatGPT, and custom AI applications to search for jobs across multiple platforms through natural language.
+This Model Context Protocol (MCP) server enables AI assistants like Claude, ChatGPT, and custom AI applications to search for jobs across multiple platforms through natural language. Perfect for AI-powered job search, recruitment automation, and career development tools.
 
----
+## What It Does
 
-## 🎯 What This Does
+This MCP server provides a unified interface to **50+ job scraping tools**, allowing AI agents to:
 
-This MCP server exposes **50+ job scraping actors** through a single unified interface, allowing AI agents to:
-
-- 🔍 Search jobs across multiple boards simultaneously
-- 📊 Get job market insights and analytics
-- 🎯 Find relevant positions based on skills and preferences
-- 💼 Access real-time job postings from major platforms
+- 🔍 **Search jobs** across multiple job boards simultaneously
+- 📊 **Get job market insights** and analytics
+- 🎯 **Find relevant positions** based on skills and preferences
+- 💼 **Access real-time job postings** from major platforms
+- 🤖 **Enable AI-powered job search** for any MCP-compatible application
 
 ### Supported Job Boards
 
-- **LinkedIn** - Multiple specialized LinkedIn scrapers
-- **Indeed** - All Indeed regional sites
-- **Glassdoor** - Jobs with company reviews
-- **Jungle** - ATS system jobs
-- **Workday** - Enterprise job postings
-- **Monster, CareerBuilder, Dice** - Traditional job boards
-- **Remote-specific** - WeWorkRemotely, Remote.OK, Remotive
-- **Industry-specific** - Healthcare, Tech, Finance job boards
-- **50+ more job sources** worldwide
+- **LinkedIn** - Professional networking jobs
+- **Indeed** - Global job search platform
+- **Glassdoor** - Jobs with company reviews and salaries
+- **Monster** - Traditional job board
+- **CareerBuilder** - Resume and job matching
+- **Dice** - Technology and engineering jobs
+- **Remote work platforms** - WeWorkRemotely, Remote.OK, Remotive
+- **Industry-specific boards** - Healthcare, Tech, Finance, and more
+- **50+ additional job sources** worldwide
 
----
-
-## 🚀 Quick Start
+## Quick Start
 
 ### For Claude Desktop
 
@@ -79,45 +76,66 @@ Use any MCP-compatible client and connect to:
 https://shahidirfan--linkedin-jobs-mcp-server.apify.actor/mcp
 ```
 
----
+## Usage Examples
 
-## 🛠️ Available Tools
-
-The MCP server exposes all job scraper actors as callable tools:
-
-- `shahidirfan-slash-Fast-LinkedIn-job-Scraper` - LinkedIn job search
-- `shahidirfan-slash-indeed-job-scraper` - Indeed job search
-- `shahidirfan-slash-glassdoor-job-scraper` - Glassdoor with reviews
-- `shahidirfan-slash-jungle-job-scraper` - Jungle ATS jobs
-- ...and 46+ more specialized scrapers!
-
-### Example Queries
-
-**Simple Search:**
+### Basic Job Search
 ```
 "Find remote Python developer jobs"
 ```
 
-**Detailed Search:**
+### Advanced Search with Filters
 ```
-"Search for senior software engineer positions in California, 
+"Search for senior software engineer positions in California,
 maximum 20 results, posted in the last week"
 ```
 
-**Multi-Board Search:**
+### Multi-Board Search
 ```
-"Find data scientist jobs on LinkedIn, Indeed, and Glassdoor 
+"Find data scientist jobs on LinkedIn, Indeed, and Glassdoor
 in New York with salaries over $120k"
 ```
 
-**Analytics:**
+### Job Market Analytics
 ```
 "Analyze the job market for React developers in San Francisco"
 ```
 
----
+## Input
 
-## 💰 Pricing
+### Configuration Parameters
+
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `actorIds` | array | List of job scraper actor IDs to expose | Pre-configured list |
+| `enableBilling` | boolean | Enable pay-per-event billing tracking | `true` |
+| `serverPort` | integer | Port for MCP server | `8080` |
+
+### Example Input
+
+```json
+{
+  "actorIds": [
+    "shahidirfan/Fast-LinkedIn-job-Scraper",
+    "shahidirfan/indeed-job-scraper",
+    "shahidirfan/glassdoor-job-scraper"
+  ],
+  "enableBilling": true,
+  "serverPort": 8080
+}
+```
+
+## Output
+
+The MCP server returns structured job data including:
+
+- Job titles and descriptions
+- Company information
+- Location and salary details
+- Application links
+- Posting dates
+- Company reviews (when available)
+
+## Cost
 
 This actor uses **Pay-Per-Event** pricing:
 
@@ -130,33 +148,7 @@ This actor uses **Pay-Per-Event** pricing:
 **Free Tier:** 10 searches/month included  
 **No subscription required** - pay only for what you use!
 
----
-
-## 🔧 Configuration
-
-### Input Parameters
-
-When running the actor directly (not via MCP):
-
-```json
-{
-  "actorIds": [
-    "shahidirfan/Fast-LinkedIn-job-Scraper",
-    "shahidirfan/indeed-job-scraper"
-  ],
-  "enableBilling": true,
-  "serverPort": 8080
-}
-```
-
-### Environment Variables
-
-- `APIFY_TOKEN` - Your Apify API token (required)
-- `ACTOR_WEB_SERVER_PORT` - Server port (default: 8080)
-
----
-
-## 📊 Features
+## Features
 
 ### ✅ Multi-Board Search
 Search multiple job boards simultaneously with a single query
@@ -168,96 +160,75 @@ Access live job postings as they're published
 Filter by location, salary, experience level, and more
 
 ### ✅ Company Insights
-Get company reviews, ratings, and culture information (Glassdoor)
+Get company reviews, ratings, and culture information
 
-### ✅ Pay-Per-Use
+### ✅ Pay-Per-Use Pricing
 No subscriptions - pay only for searches you perform
 
-### ✅ AI-Native
-Designed specifically for AI agent integration
+### ✅ AI-Native Design
+Built specifically for AI agent integration
 
----
+### ✅ High Availability
+99.9% uptime with standby mode enabled
 
-## 🏗️ Architecture
+### ✅ Enterprise Security
+SOC 2 Type II certified infrastructure
 
-```
-AI Agent (Claude/ChatGPT)
-    ↓
-MCP Protocol
-    ↓
-LinkedIn Jobs MCP Server
-    ↓
-50+ Job Scraper Actors
-    ↓
-LinkedIn, Indeed, Glassdoor, etc.
-```
-
----
-
-## 📚 Documentation
-
-### MCP Setup Guides
-- [Apify MCP Documentation](https://docs.apify.com/platform/integrations/mcp)
-- [Model Context Protocol](https://modelcontextprotocol.io/)
-
-### Job Scraper Documentation
-Each job scraper actor has detailed documentation:
-- [LinkedIn Job Scraper](https://apify.com/shahidirfan/Fast-LinkedIn-job-Scraper)
-- [Indeed Job Scraper](https://apify.com/shahidirfan/indeed-job-scraper)
-- [Glassdoor Job Scraper](https://apify.com/shahidirfan/glassdoor-job-scraper)
-
----
-
-## 🤝 Support
-
-### Need Help?
-- 💬 [Apify Discord](https://discord.com/invite/jyEM2PRvMU)
-- 📧 Email: your@email.com
-- 🐛 [Report Issues](https://github.com/shahidirfan/linkedin-jobs-mcp-server/issues)
-
-### Feature Requests
-Have ideas for new features? Open an issue or reach out!
-
----
-
-## 🏆 Use Cases
-
-### For Developers
-- Build AI-powered job search applications
-- Create custom career assistants
-- Automate job market research
-
-### For Recruiters
-- Find candidates faster with AI assistance
-- Monitor job market trends
-- Analyze competitor job postings
+## Use Cases
 
 ### For Job Seekers
 - Get personalized job recommendations
 - Track new postings across multiple boards
 - Receive market insights for salary negotiation
+- Find remote work opportunities
 
----
+### For Recruiters
+- Find candidates faster with AI assistance
+- Monitor job market trends
+- Analyze competitor job postings
+- Source talent from multiple platforms
 
-## 📈 Performance
+### For Developers
+- Build AI-powered job search applications
+- Create custom career assistants
+- Automate job market research
+- Develop recruitment automation tools
 
-- **Response Time:** < 5 seconds for single board
+### For Enterprises
+- Integrate job search into HR systems
+- Power internal career portals
+- Enable AI-driven talent acquisition
+- Monitor industry job trends
+
+## Performance
+
+- **Response Time:** < 5 seconds for single board searches
 - **Multi-Board:** 10-15 seconds for 3+ boards
 - **Uptime:** 99.9% (standby mode enabled)
 - **Rate Limits:** 30 requests/second per user
+- **Concurrent Users:** Unlimited
 
----
-
-## 🔐 Security & Privacy
+## Security & Privacy
 
 - ✅ All data transmission encrypted (HTTPS)
-- ✅ No data stored permanently
+- ✅ No personal data stored permanently
 - ✅ API tokens never exposed to end users
-- ✅ SOC 2 Type II certified infrastructure (Apify)
+- ✅ SOC 2 Type II certified infrastructure
+- ✅ GDPR compliant data handling
 
----
+## Support
 
-## 📝 Changelog
+### Getting Help
+- 📚 [Apify MCP Documentation](https://docs.apify.com/platform/integrations/mcp)
+- 💬 [Apify Discord Community](https://discord.com/invite/jyEM2PRvMU)
+- 🐛 [Report Issues](https://github.com/shahidirfan/linkedin-jobs-mcp-server/issues)
+
+### Documentation Links
+- [Model Context Protocol](https://modelcontextprotocol.io/)
+- [Claude Desktop MCP Setup](https://docs.anthropic.com/claude/docs/desktop-mcp)
+- [VS Code MCP Extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-vscode)
+
+## Changelog
 
 ### Version 1.0.0 (2025-01-01)
 - Initial release
@@ -265,30 +236,17 @@ Have ideas for new features? Open an issue or reach out!
 - Pay-per-event billing
 - Claude Desktop integration
 - VS Code integration
+- Standby mode for 24/7 availability
 
----
+## License
 
-## 📜 License
+Apache-2.0 License
 
-Apache-2.0 License - see LICENSE file for details
-
----
-
-## 👨‍💻 Author
+## Author
 
 **Shahid Irfan**
 - Apify: [@shahidirfan](https://apify.com/shahidirfan)
 - GitHub: [@shahidirfan](https://github.com/shahidirfan)
-
----
-
-## 🌟 Show Your Support
-
-If you find this MCP server useful:
-- ⭐ Star this actor on Apify
-- 🔗 Share with other developers
-- 💬 Join our Discord community
-- 📝 Write a review
 
 ---
 
