@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "name": "job-search",
+      "description": "Single job board search - charges per individual board search",
+      "priceUSD": 0.01
+    },
+    {
+      "name": "multi-board-search",
+      "description": "Search across multiple job boards simultaneously",
+      "priceUSD": 0.05
+    },
+    {
+      "name": "premium-analytics",
+      "description": "Advanced job market analytics and insights",
+      "priceUSD": 0.10
+    }
+  ]
+}

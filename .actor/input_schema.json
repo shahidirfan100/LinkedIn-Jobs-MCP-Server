@@ -1,0 +1,36 @@
+{
+  "title": "LinkedIn Jobs MCP Server Configuration",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "actorIds": {
+      "title": "Job Scraper Actors to Expose",
+      "type": "array",
+      "description": "List of your job scraper actor IDs that will be available through this MCP server",
+      "editor": "stringList",
+      "prefill": [
+        "shahidirfan/Fast-LinkedIn-job-Scraper",
+        "shahidirfan/indeed-job-scraper",
+        "shahidirfan/glassdoor-job-scraper"
+      ],
+      "example": [
+        "shahidirfan/Fast-LinkedIn-job-Scraper",
+        "shahidirfan/indeed-job-scraper"
+      ]
+    },
+    "enableBilling": {
+      "title": "Enable Pay-Per-Event Billing",
+      "type": "boolean",
+      "description": "Track usage events for monetization",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "serverPort": {
+      "title": "Server Port",
+      "type": "integer",
+      "description": "Port for MCP server (leave default unless needed)",
+      "default": 8080,
+      "example": 8080
+    }
+  }
+}

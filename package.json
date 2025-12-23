@@ -1,0 +1,37 @@
+{
+  "name": "linkedin-jobs-mcp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for searching jobs on LinkedIn and 50+ other job boards via AI agents",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "author": "Shahid Irfan",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "apify": "^3.5.2",
+    "@apify/actors-mcp-server": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "apify",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "jobs",
+    "linkedin",
+    "indeed",
+    "glassdoor",
+    "job-search",
+    "claude",
+    "chatgpt"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "actorSpecification": 1,
+  "name": "linkedin-jobs-mcp-server",
+  "title": "LinkedIn Jobs MCP Server - AI Job Search",
+  "description": "MCP server that enables AI agents like Claude to search jobs on LinkedIn and 50+ other job boards. Works with Claude Desktop, VS Code, and any MCP-compatible client.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "javascript-start"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md",
+  "categories": ["mcp-servers", "AI", "JOBS"],
+  "isPublic": true,
+  "seo": {
+    "title": "LinkedIn Jobs MCP Server - Connect AI to Job Boards",
+    "description": "Enable AI agents to search 50+ job boards including LinkedIn, Indeed, Glassdoor. Perfect for Claude, ChatGPT, and custom AI applications."
+  },
+  "defaultRunOptions": {
+    "build": "latest",
+    "timeoutSecs": 0,
+    "memoryMbytes": 1024
+  },
+  "standbyOptions": {
+    "desiredRequestsPerActorRun": 100,
+    "maxRequestsPerActorRun": 200,
+    "idleTimeoutSecs": 300
+  }
+}
