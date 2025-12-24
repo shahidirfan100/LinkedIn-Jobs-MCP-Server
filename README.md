@@ -233,8 +233,6 @@ Apache-2.0 License
 
 **Shahid Irfan**
 - Apify: [@shahidirfan](https://apify.com/shahidirfan)
-- GitHub: [@shahidirfan](https://github.com/shahidirfan)
-
 ---
 
 **Ready to supercharge your AI with job search capabilities?**  

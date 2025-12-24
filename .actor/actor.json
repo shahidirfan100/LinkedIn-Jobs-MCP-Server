@@ -8,6 +8,7 @@
     "templateId": "javascript-start"
   },
   "input": "./input_schema.json",
+  "datasetSchema": "./dataset_schema.json",
   "dockerfile": "./Dockerfile",
   "readme": "./README.md",
   "categories": ["mcp-servers", "AI", "JOBS"],
